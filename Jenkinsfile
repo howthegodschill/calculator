@@ -6,12 +6,12 @@ pipeline {
                     sh "./gradlew compileJava"
                }
           }
-          stage("Unit test") {
+          stage("Unit Test") {
                steps {
                     sh "./gradlew test"
                }
           }
-          stage("Code coverage") {
+          stage("Code Coverage") {
                steps{
                    sh "./gradlew jacocoTestReport"
                    publishHTML (target: [
@@ -22,7 +22,7 @@ pipeline {
                    sh "./gradlew jacocoTestCoverageVerification"
                }
           }
-          stage ("STATIC CODE ANALYSIS" ) {
+          stage ("Static Code Analysis" ) {
                steps {
                     sh "./gradlew checkstyleMain"
                     publishHTML (target: [
