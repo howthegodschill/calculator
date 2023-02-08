@@ -1,3 +1,3 @@
 # calculator
 
-This is for my Jenkins CI/CD practice.
+This is for my Jenkins CI/CD training and practice.
