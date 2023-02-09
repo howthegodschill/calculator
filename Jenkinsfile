@@ -42,6 +42,11 @@ pipeline {
                    sh "docker build -t howthegodschill/calculator ."
                }
           }
+          stage("Docker Login") {
+               steps{
+                   sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+               }
+          }
           stage("Docker Push") {
                steps{
                    sh "docker push howthegodschill/calculator"
