@@ -42,5 +42,10 @@ pipeline {
                    sh "docker build -t howthegodschill/calculator ."
                }
           }
+          stage("Docker Push") {
+               steps{
+                   sh "docker push howthegodschill/calculator"
+               }
+          }
      }
 }
