@@ -1,5 +1,8 @@
 pipeline {
      agent any
+     environment {
+          DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-howthegodschill')
+     }
      stages {
           stage("Compile") {
                steps {
@@ -44,7 +47,7 @@ pipeline {
           }
           stage("Docker Login") {
                steps{
-                   sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                   sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                }
           }
           stage("Docker Push") {
