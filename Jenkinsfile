@@ -32,5 +32,15 @@ pipeline {
                     ])
                }
           }
+          stage("Package Application") {
+               steps{
+                   sh "./gradlew build"
+               }
+          }
+          stage("Docker Build") {
+               steps{
+                   sh "docker build -t howthegodschill/calculator ."
+               }
+          }
      }
 }
